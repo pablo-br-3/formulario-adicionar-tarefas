@@ -1,0 +1,245 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    font-size:62.5%;
+}
+
+body{
+    font-family:'Open Sans',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    /* 🌌 Background moderno animado */
+    background:linear-gradient(135deg,#1e1e2f,#302b63,#24243e);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+ul{
+    list-style:none;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+/* 🔮 APP CONTAINER */
+.todo-list__app{
+   backdrop-filter:blur(15px);
+   background:rgba(255,255,255,0.08);
+   border-radius:1.2rem;
+   box-shadow:0 0 40px rgba(0,0,0,.6);
+   width:40rem;
+   overflow:hidden;
+   border:1px solid rgba(255,255,255,.15);
+}
+
+/* HEADER */
+.todo-add-item__container{
+    padding:3rem 2rem;
+    background:linear-gradient(135deg,#7f00ff,#e100ff);
+}
+
+.todo-add-item__container > .heading{
+    font-size:3rem;
+    color:white;
+    text-align:center;
+    letter-spacing:.3rem;
+}
+
+/* FORM */
+.todo-add-item{
+    display:flex;
+    margin-top:2rem;
+}
+
+.inputItem{
+    flex:1;
+    padding:1rem ;
+    border-radius:.8rem;
+    border:none;
+    outline:none;
+    font-size:1.4rem;
+}
+
+input[type="submit"]{
+    margin-left:0.8rem;
+    padding:1.2rem 2rem;
+    border-radius:.8rem;
+    font-weight:bold;
+    background:#ffcc70;
+    transition:.3s;
+}
+
+input[type="submit"]:hover{
+    background:#ffd98f;
+    transform:scale(1.05);
+    cursor: pointer;
+}
+
+/* LIST */
+.todo-list__container{
+    padding:2rem;
+}
+
+/* ITEM */
+.todo-item{
+    display:grid;
+    grid-template-columns: 1fr minmax(20rem,auto) 1fr 1fr;
+    align-items:center;
+    gap:.8rem;
+
+    padding:1.2rem 1.5rem;
+    margin-bottom:1.5rem;
+
+    border-radius:1rem;
+    background:rgba(255,255,255,0.1);
+    box-shadow:0 8px 20px rgba(0,0,0,.4);
+    transition:.3s;
+    position:relative;
+}
+
+.todo-item:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.6);
+}
+
+/* CHECK BUTTON */
+.button-check{
+    width:2rem;
+    height:2rem;
+    border-radius:.4rem;
+    border:2px solid #b388ff;
+    background:transparent;
+    position:relative;
+}
+
+.fa-check{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#b388ff;
+}
+
+.fa-check.displayNone{
+    display:none;
+}
+
+/* TASK NAME */
+.task-name{
+    padding:1rem;
+    font-size:1.4rem;
+    color:white;
+    word-break:break-word;
+}
+
+/* ICONS */
+.fa-edit,
+.fa-trash-alt{
+    font-size:1.6rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.fa-edit{
+    color:#7fdbff;
+}
+
+.fa-edit:hover{
+    color:#00c3ff;
+    transform:scale(1.2);
+}
+
+.fa-trash-alt{
+    color:#ff6b6b;
+}
+
+.fa-trash-alt:hover{
+    color:#ff1e56;
+    transform:scale(1.2);
+}
+
+/* 🔥 IMPORTANTE: NÃO ALTERADO */
+/* Mantendo exatamente como está no seu arquivo original */
+.editContainer{
+    position:absolute;
+    z-index: 99999;
+    top:3.5rem;
+    left:2rem;
+    width:100%;
+    height:5.5rem; /* 🔥 um pouco mais alto */
+
+    background: rgba(25, 20, 45, 0.95);
+    border: 1px solid rgba(179, 136, 255, 0.4);
+
+    border-radius:0.8rem;
+    box-shadow:0 8px 25px rgba(0,0,0,.7);
+
+    display:flex;
+    align-items:center;
+    gap:0.5rem; /* 🔥 mais espaçamento equilibrado */
+    padding:0 1.8rem; /* 🔥 padding lateral melhor */
+    
+    display:none;
+}
+
+
+.editContainer .editInput{
+   
+ 
+    padding:0.5rem 1.2rem;
+
+    background:rgba(255,255,255,0.05);
+    border:1px solid #b388ff;
+    border-radius:0.6rem;
+
+    color:white;
+    font-size:1.4rem;
+}
+.editContainer .editButton,
+.editContainer .cancelButton{
+  
+    padding:1rem 1.4rem;
+
+    border:none;
+    border-radius:0.6rem;
+
+    font-size:1.3rem;
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+
+
+.editContainer .editInput::placeholder{
+    color:#aaa;
+}
+
+
+
+.editContainer .editButton:hover{
+    background:#a855f7;
+}
+
+
+
+.editContainer .cancelButton:hover{
+    background:#ff1744;
+}
